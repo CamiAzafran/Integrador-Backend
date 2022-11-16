@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import imgLogo from '../assets/logo-panchos.jpg';
 
 const NavbarStyled = styled.div`
   padding: 10px;
@@ -9,8 +10,15 @@ const NavbarStyled = styled.div`
   z-index: 999;
 `;
 
+const Logo = styled.img`
+  max-width: 200px;
+  height: auto;
+`;
+
 export const Navbar = () => {
-  return <NavbarStyled>
-    <h1>Malvina</h1>
-  </NavbarStyled>;
+  return (
+    <NavbarStyled>
+      <Logo src={imgLogo}/>
+    </NavbarStyled>
+  );
 };
