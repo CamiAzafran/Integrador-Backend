@@ -8,6 +8,6 @@ export const GlobalStyle = createGlobalStyle`
        height: 100vh;
    }
    h1, h2, h3 {
-    font-family: 'Cutive Mono', monospace;
+    font-family: 'Montserrat', sans-serif;
    }
 `;
