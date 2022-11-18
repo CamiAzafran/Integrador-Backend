@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
        font-weight: 400;
        margin: 0;
        height: 100vh;
+       background-color: black;
    }
    
    h1, h2, h3 {

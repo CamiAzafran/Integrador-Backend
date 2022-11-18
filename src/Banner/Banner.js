@@ -7,7 +7,6 @@ export const Banner = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #fff;
   background-image: url('img/banner-1.jpg');
   filter: contrast(75%) brightness(75%);
   background-attachment: fixed;
@@ -15,6 +14,8 @@ export const Banner = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+  color: #fff;
+  margin: 0px 20px 0px 20px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  `;
+`;
