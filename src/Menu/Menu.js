@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Foods } from '../data/data';
-import { FoodGrid, Food, FoodLabel} from './FoodGrid';
+import { Foods, FormatPrice} from '../data/data';
+import { FoodGrid, Food, FoodLabel } from './FoodGrid';
 
 const MenuStyled = styled.div`
   height: 1000px;
@@ -10,7 +10,7 @@ const MenuStyled = styled.div`
   z-index: 3;
 `;
 
-export const Menu = ({setOpenFood}) => {
+export const Menu = ({ setopenFood }) => {
   return (
     <MenuStyled>
       {Object.entries(Foods).map(([sectionName, foods]) => {
@@ -19,8 +19,11 @@ export const Menu = ({setOpenFood}) => {
             <h3>{sectionName}</h3>
             <FoodGrid>
               {foods.map((food) => (
-                <Food img={food.img} onClick={() => setOpenFood(food)}>
-                  <FoodLabel>{food.name}</FoodLabel>
+                <Food img={food.img} onClick={() => setopenFood(food)}>
+                  <FoodLabel>
+                    <div>{food.name}</div>
+                    <div>{FormatPrice(food.price)}</div>
+                  </FoodLabel>
                 </Food>
               ))}
             </FoodGrid>

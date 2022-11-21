@@ -6,10 +6,11 @@ export const GlobalStyle = createGlobalStyle`
        font-weight: 400;
        margin: 0;
        height: 100vh;
-       background-color: black;
+       background-color: #0a0a0a;
    }
    
    h1, h2, h3 {
     font-family: 'Montserrat', sans-serif;
+    color: #c4c4c4;
    }
 `;
