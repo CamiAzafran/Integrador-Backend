@@ -9,7 +9,6 @@ import { Order } from './Orders/Order';
 
 import { useOpenFood } from './hooks/useOpenFood';
 import { useOrders } from './hooks/useOrders';
-import { FormatPrice } from './data/data';
 
 function App() {
   const opendFood = useOpenFood();

@@ -70,16 +70,16 @@ const DialogShadow = styled.div`
   z-index: 4;
 `;
 
-const FoodDialogContainer = ({ openFood, setopenFood, orders, setOrdes }) => {
+const FoodDialogContainer = ({ openFood, setopenFood, orders, setOrders }) => {
   const handlerClose = () => {
     setopenFood();
   };
   const order = {
     ...openFood,
   };
-  
+
   const addToOrder = () => {
-    setOrdes([...orders, order]);
+    setOrders([...orders, order]);
     handlerClose();
   };
 
@@ -94,7 +94,8 @@ const FoodDialogContainer = ({ openFood, setopenFood, orders, setOrdes }) => {
           <div>comprameee</div>
         </DialogContent>
         <DialogFooter>
-          <ConfirmButton> onClick={addToOrder} Agregar: {FormatPrice(openFood.price)}</ConfirmButton>
+          <ConfirmButton> onClick={addToOrder} Agregar: {FormatPrice(openFood.price)}
+          </ConfirmButton>
         </DialogFooter>
       </Dialog>
     </>

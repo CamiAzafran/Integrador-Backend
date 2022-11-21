@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 export const useOrders = () => {
-  const [ordes, setOrdes] = useState([]);
+  const [ordes, setOrders] = useState([]);
   return {
     ordes,
-    setOrdes,
+    setOrders,
   };
 };

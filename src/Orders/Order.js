@@ -23,6 +23,7 @@ const OrderStyled = styled.div`
 
 const OrderContent = styled(DialogContent)`
   padding: 20px;
+  max-height: 100%;
   height: 100%;
 `;
 
@@ -38,7 +39,7 @@ const OrderItem = styled.div`
   justify-content: space-between;
 `;
 
-export const Order = (orders) => {
+export const Order = ({ orders }) => {
   return (
     <OrderStyled>
       {orders?.length === 0 ? (
@@ -46,21 +47,20 @@ export const Order = (orders) => {
       ) : (
         <OrderContent>
           <OrderContainer>Tu pedido:</OrderContainer>
-          <OrderContainer>
-            {orders.map((order) => (
-              <OrderContainer>
-                <OrderItem>
-                  <div>1</div>
-                  <div>{order.name}</div>
-                  <div>{FormatPrice(order.price)}</div>
-                </OrderItem>
-              </OrderContainer>
-            ))}
-          </OrderContainer>
+
+          {orders.map((order) => (
+            <OrderContainer>
+              <OrderItem>
+                <div>1</div>
+                <div>{order.name}</div>
+                <div>{FormatPrice(order.price)}</div>
+              </OrderItem>
+            </OrderContainer>
+          ))}
         </OrderContent>
       )}
       <DialogFooter>
-        <ConfirmButton></ConfirmButton>
+        <ConfirmButton>Ir a pagar</ConfirmButton>
       </DialogFooter>
     </OrderStyled>
   );
