@@ -94,7 +94,9 @@ const FoodDialogContainer = ({ openFood, setopenFood, orders, setOrders }) => {
           <div>comprameee</div>
         </DialogContent>
         <DialogFooter>
-          <ConfirmButton> onClick={addToOrder} Agregar: {FormatPrice(openFood.price)}
+          <ConfirmButton>
+            {' '}
+            Agregar: {FormatPrice(openFood.price)} onClick= {addToOrder}
           </ConfirmButton>
         </DialogFooter>
       </Dialog>
