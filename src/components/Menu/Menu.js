@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Foods, FormatPrice} from '../data/data';
+import { FormatPrice } from '../../data/data';
 import { FoodGrid, Food, FoodLabel } from './FoodGrid';
+
+import { useSelector } from 'react-redux';
 
 const MenuStyled = styled.div`
   height: 1000px;
@@ -11,6 +13,9 @@ const MenuStyled = styled.div`
 `;
 
 export const Menu = ({ setopenFood }) => {
+  const Foods = useSelector((state) => state.products.foods);
+
+  
   return (
     <MenuStyled>
       {Object.entries(Foods).map(([sectionName, foods]) => {

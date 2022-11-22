@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FoodLabel } from '../Menu/FoodGrid';
-import { Title } from '../Styles/title';
-import { GrisOscuro } from '../Styles/colors';
-import { FormatPrice } from '../data/data';
+import { Title } from '../../Styles/title';
+import { GrisOscuro } from '../../Styles/colors';
+import { FormatPrice } from '../../data/data';
 
 const Dialog = styled.div`
   width: 500px;

@@ -5,13 +5,13 @@ import {
   DialogFooter,
   ConfirmButton,
 } from '../FoodDialog/FoodDialog';
-import { FormatPrice } from '../data/data';
+import { FormatPrice } from '../../data/data';
 import {
   NegroFondo,
   GrisClaro,
   GrisOscuro,
   ColorSombra,
-} from '../Styles/colors';
+} from '../../Styles/colors';
 
 const OrderStyled = styled.div`
   position: fixed;
@@ -62,7 +62,7 @@ export const Order = ({ orders }) => {
   return (
     <OrderStyled>
       {orders?.length === 0 ? (
-        <OrderContent>Nada por aquí</OrderContent>
+        <OrderContent>Sin ordenes</OrderContent>
       ) : (
         <OrderContent>
           <OrderContainer>Tu pedido:</OrderContainer>
