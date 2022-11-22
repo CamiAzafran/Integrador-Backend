@@ -6,24 +6,23 @@ import {
   ConfirmButton,
 } from '../FoodDialog/FoodDialog';
 import { FormatPrice } from '../../data/data';
-import {
-  NegroFondo,
-  GrisClaro,
-  GrisOscuro,
-  ColorSombra,
-} from '../../Styles/colors';
+import { GrisClaro, GrisOscuro, ColorSombra } from '../../Styles/colors';
+import { useSelector } from 'react-redux';
 
 const OrderStyled = styled.div`
   position: fixed;
   right: 0px;
   top: 93px;
   width: 340px;
-  background-color: ${NegroFondo};
+  background-color: black;
   height: calc(100% - 93px);
   z-index: 10;
   box-shadow: 4px 0px 5px 4px ${ColorSombra};
   display: flex;
   flex-direction: column;
+  transform: ${({ show }) => (show ? 'translateX(0)' : 'translateX(100%)')};
+  transition-property: transform;
+  transition-duration: 0.5s;
 `;
 
 const OrderContent = styled(DialogContent)`
@@ -59,8 +58,10 @@ const OrderButton = styled(ConfirmButton)`
 `;
 
 export const Order = ({ orders }) => {
+  const hidden = useSelector((state) => state.cart.hidden);
+
   return (
-    <OrderStyled>
+    <OrderStyled show={hidden}>
       {orders?.length === 0 ? (
         <OrderContent>Sin ordenes</OrderContent>
       ) : (

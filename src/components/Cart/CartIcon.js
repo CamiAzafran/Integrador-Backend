@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as ShoopingIcon } from '../../assets/cart-icon.svg';
 
+import { useDispatch } from 'react-redux';
+import * as cartActions from '../../redux/cart/cart-actions';
+
 const CartIconStyled = styled.div`
   width: 45px;
   height: 45px;
@@ -21,8 +24,13 @@ const ItemCount = styled.span`
 `;
 
 export const CartIcon = () => {
+    const dispatch = useDispatch();
+const handlerToggle = () => {
+    dispatch(cartActions.toggleCartHidden())
+}
+
   return (
-    <CartIconStyled>
+    <CartIconStyled onClick={handlerToggle}>
       <ShoopingIcon style={{ width: '24px', height: '24px' }} />
       <ItemCount>{0}</ItemCount>
     </CartIconStyled>
