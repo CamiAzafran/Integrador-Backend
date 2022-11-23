@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import { FoodLabel } from '../Menu/FoodGrid';
 import { Title } from '../../Styles/title';
 import { GrisOscuro } from '../../Styles/colors';
-import { FormatPrice } from '../../data/data';
+import { formatPrice } from '../../data/data';
+import { useDispatch } from 'react-redux';
+import * as cartActions from '../../redux/cart/cart-actions';
 
 const Dialog = styled.div`
   width: 500px;
@@ -61,7 +63,7 @@ export const ConfirmButton = styled(Title)`
   }
 `;
 
-const DialogShadow = styled.div`
+export const DialogShadow = styled.div`
   position: fixed;
   height: 100%;
   width: 100%;
@@ -70,17 +72,15 @@ const DialogShadow = styled.div`
   z-index: 4;
 `;
 
-const FoodDialogContainer = ({ openFood, setopenFood, orders, setOrders }) => {
+const FoodDialogContainer = ({ openFood, setOpenFood }) => {
+  const dispatch = useDispatch();
+
   const handlerClose = () => {
-    setopenFood();
-  };
-  const order = {
-    ...openFood,
+    setOpenFood();
   };
 
   const addToOrder = () => {
-    setOrders([...orders, order]);
-    handlerClose();
+    dispatch(cartActions.addItem(openFood));
   };
 
   return (
@@ -91,20 +91,18 @@ const FoodDialogContainer = ({ openFood, setopenFood, orders, setOrders }) => {
           <DialogBannerName>{openFood.name}</DialogBannerName>
         </DialogBanner>
         <DialogContent>
-          <div>comprameee</div>
+          <div>Comprameee</div>
         </DialogContent>
         <DialogFooter>
           <ConfirmButton onClick={addToOrder}>
-            Agregar: {FormatPrice(openFood.price)}
+            Agregar: {formatPrice(openFood.price)}
           </ConfirmButton>
         </DialogFooter>
       </Dialog>
     </>
   );
 };
-
 export const FoodDialog = (props) => {
   if (!props.openFood) return null;
-
   return <FoodDialogContainer {...props} />;
 };

@@ -4,10 +4,13 @@ import {
   DialogContent,
   DialogFooter,
   ConfirmButton,
+  DialogShadow,
 } from '../FoodDialog/FoodDialog';
-import { FormatPrice } from '../../data/data';
+import { formatPrice } from '../../data/data';
 import { GrisClaro, GrisOscuro, ColorSombra } from '../../Styles/colors';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { QuantityManage } from './QuantityManage';
+import * as cartActions from '../../redux/cart/cart-actions';
 
 const OrderStyled = styled.div`
   position: fixed;
@@ -20,7 +23,7 @@ const OrderStyled = styled.div`
   box-shadow: 4px 0px 5px 4px ${ColorSombra};
   display: flex;
   flex-direction: column;
-  transform: ${({ show }) => (show ? 'translateX(0)' : 'translateX(100%)')};
+  transform: ${({ show }) => (show ? `translateX(0)` : `translateX(100%)`)};
   transition-property: transform;
   transition-duration: 0.5s;
 `;
@@ -34,14 +37,14 @@ const OrderContent = styled(DialogContent)`
 
 const OrderContainer = styled.div`
   color: ${GrisClaro};
-  padding: 10px 5px;
+  padding: 10px 10px;
   border-bottom: 1px solid ${ColorSombra};
 `;
 
 const OrderItem = styled.div`
   padding: 10px 5px;
   display: grid;
-  grid-template-column: 20px 150px 20px 60px;
+  grid-template-column: 50px 100px 100px;
   justify-content: space-between;
 `;
 
@@ -57,31 +60,62 @@ const OrderButton = styled(ConfirmButton)`
   }
 `;
 
-export const Order = ({ orders }) => {
+const ItemImg = styled.div`
+  width: 46px;
+  height: 46px;
+  background-image: ${({ img }) => `url(${img})`};
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border-radius: 10px;
+`;
+
+export const Order = () => {
   const hidden = useSelector((state) => state.cart.hidden);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const dispatch = useDispatch();
+
+  const total = cartItems.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
+
+  const handlerToggle = () => {
+    dispatch(cartActions.toggleCartHidden());
+  };
 
   return (
-    <OrderStyled show={hidden}>
-      {orders?.length === 0 ? (
-        <OrderContent>Sin ordenes</OrderContent>
-      ) : (
-        <OrderContent>
-          <OrderContainer>Tu pedido:</OrderContainer>
+    <>
+      {hidden && <DialogShadow onClick={handlerToggle} />}
+      <OrderStyled show={hidden}>
+        {cartItems?.length === 0 ? (
+          <OrderContent>Sin ordenes</OrderContent>
+        ) : (
+          <OrderContent>
+            <OrderContainer>Tu pedido:</OrderContainer>
 
-          {orders.map((order) => (
-            <OrderContainer>
-              <OrderItem>
-                <div>1</div>
-                <div>{order.name}</div>
-                <div>{FormatPrice(order.price)}</div>
-              </OrderItem>
-            </OrderContainer>
-          ))}
-        </OrderContent>
-      )}
-      <OrderFooter>
-        <OrderButton>Ir a pagar</OrderButton>
-      </OrderFooter>
-    </OrderStyled>
+            {cartItems.map((item) => (
+              <OrderContainer>
+                <OrderItem>
+                  <ItemImg img={item.img} />
+                  <div>
+                    <div>{item.name}</div>
+                    {formatPrice(item.price * item.quantity)}
+                  </div>
+
+                  <div>
+                    <QuantityManage item={item} />
+                  </div>
+                </OrderItem>
+              </OrderContainer>
+            ))}
+          </OrderContent>
+        )}
+        <OrderFooter>
+          <OrderButton>Ir a pagar {formatPrice(total)}</OrderButton>
+        </OrderFooter>
+      </OrderStyled>
+    </>
   );
 };
