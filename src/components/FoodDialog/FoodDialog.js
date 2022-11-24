@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FoodLabel } from '../Menu/FoodGrid';
 import { Title } from '../../Styles/title';
-import { GrisOscuro } from '../../Styles/colors';
+import { GrisOscuro } from '../../Styles/utilities';
 import { formatPrice } from '../../data/data';
 import { useDispatch } from 'react-redux';
 import * as cartActions from '../../redux/cart/cart-actions';

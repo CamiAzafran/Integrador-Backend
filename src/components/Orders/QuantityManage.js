@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Title } from '../../Styles/title';
 
-import { GrisOscuro, GrisClaro, BlancoDisable} from '../../Styles/colors';
-import { formatPrice } from '../../data/data';
+import { GrisOscuro, GrisClaro, } from '../../Styles/utilities';
 import RemoveIcon from '../../assets/delete-full.svg';
 import * as cartActions from '../../redux/cart/cart-actions';
 import { useDispatch } from 'react-redux';

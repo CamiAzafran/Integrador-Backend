@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import imgLogo from '../../assets/logo-panchos.jpg';
 import { CartIcon } from '../Cart/CartIcon';
+import { fixed } from '../../Styles/utilities';
 
 const NavbarStyled = styled.div`
   padding: 10px;
-  position: fixed;
+  ${fixed()}
   display: flex;
   align-items: center;
   justify-content: space-between;

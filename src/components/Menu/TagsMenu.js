@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-/* import { GrisClaro, GrisOscuro, NegroFondo } from '../../Styles/colors'; */
+import { GrisClaro } from '../../Styles/utilities';
 
 export const TagsMenu = styled.div`
   display: flex;
@@ -12,13 +12,14 @@ export const TagCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #fff;
-  color: #45b6b6;
-  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.09);
+  background: ${({ selected }) => (selected ? '#1f1f1f' : '#141414')};
+  color: ${GrisClaro};
+  box-shadow: 0 3px 5px 0 #292929;
   border-radius: 20px;
   padding: 0.35rem;
+  cursor: pointer;
   &:hover {
-    background: #e8e8e8;
+    background: #1f1f1f;
     box-shadow: none;
   }
 `;

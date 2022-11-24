@@ -24,20 +24,20 @@ const ItemCount = styled.span`
 `;
 
 export const CartIcon = () => {
-    const dispatch = useDispatch();
-    const quantity = useSelector((state) =>
+  const dispatch = useDispatch();
+  const quantity = useSelector((state) =>
     state.cart.cartItems.reduce((acc, cartItem) => {
       return acc + cartItem.quantity;
     }, 0)
   );
 
-const handlerToggle = () => {
-    dispatch(cartActions.toggleCartHidden())
-}
+  const handlerToggle = () => {
+    dispatch(cartActions.toggleCartHidden());
+  };
 
   return (
     <CartIconStyled onClick={handlerToggle}>
-      <ShoopingIcon style={{ width: '24px', height: '24px' }} />
+      <ShoopingIcon style= {{ width: '24px', height: '24px' }} />
       <ItemCount>{quantity}</ItemCount>
     </CartIconStyled>
   );

@@ -84,11 +84,11 @@ export const foodItems = [
 export const arraySections = [
   {
     section: 'Panchos',
-    imgTag: 'img/panchos-4.jpg',
+    imgTag: 'img/panchos-2.jpg',
   },
   {
     section: 'Papas',
-    imgTag: 'img/papas-3.jpg',
+    imgTag: 'img/papas-2.jpg',
   },
   {
     section: 'Bebidas',

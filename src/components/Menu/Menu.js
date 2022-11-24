@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { formatPrice } from '../../data/data';
@@ -14,20 +14,32 @@ const MenuStyled = styled.div`
 `;
 
 export const Menu = ({ setOpenFood }) => {
-  const Foods = useSelector((state) => state.products.foods);
+  const [section, setSection] = useState(null);
+  let Foods = useSelector((state) => state.products.foods);
   const categories = useSelector((state) => state.categories.categories);
 
+  if (section) {
+    Foods = { [section]: Foods[section] };
+  }
   return (
     <MenuStyled>
       <h2>Menu</h2>
-      {/* <TagsMenu>
+      <TagsMenu>
+        {section && (
+          <TagCard onClick={() => setSection(null)}>
+            <p>Todo</p>
+          </TagCard>
+        )}
         {categories.map((category) => (
-          <TagCard>
+          <TagCard
+            onClick={() => setSection(category.section)}
+            selected={category.section === section}
+          >
             <TagImg img={category.imgTag} />
             <p>{category.section}</p>
           </TagCard>
         ))}
-      </TagsMenu> */}
+      </TagsMenu>
       {Object.entries(Foods).map(([sectionName, foods]) => {
         return (
           <>

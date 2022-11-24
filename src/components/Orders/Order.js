@@ -7,7 +7,7 @@ import {
   DialogShadow,
 } from '../FoodDialog/FoodDialog';
 import { formatPrice } from '../../data/data';
-import { GrisClaro, GrisOscuro, ColorSombra } from '../../Styles/colors';
+import { GrisClaro, GrisOscuro, ColorSombra } from '../../Styles/utilities';
 import { useSelector, useDispatch } from 'react-redux';
 import { QuantityManage } from './QuantityManage';
 import * as cartActions from '../../redux/cart/cart-actions';
