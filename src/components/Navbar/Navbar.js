@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import imgLogo from '../../assets/logo-panchos.jpg';
 import { CartIcon } from '../Cart/CartIcon';
 import { fixed } from '../../Styles/utilities';
+import { Link } from 'react-router-dom';
 
 const NavbarStyled = styled.div`
   padding: 10px;
@@ -31,7 +32,10 @@ const NavigationMenu = styled.div`
 export const Navbar = () => {
   return (
     <NavbarStyled>
+      <Link to='/'>
       <Logo src={imgLogo} />
+      </Link>
+      
       <NavigationMenu>
         <CartIcon></CartIcon>
       </NavigationMenu>

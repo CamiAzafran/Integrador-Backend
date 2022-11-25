@@ -13,4 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
     color: #c4c4c4;
    }
+   a {
+    text-decoration: none;
+   }
 `;

@@ -7,6 +7,7 @@ import { formatPrice } from '../../data/data';
 import { useDispatch } from 'react-redux';
 import * as cartActions from '../../redux/cart/cart-actions';
 
+
 const Dialog = styled.div`
   width: 500px;
   background-color: white;
@@ -38,6 +39,7 @@ export const DialogContent = styled.div`
   overflow: auto;
   min-height: 100px;
   max-height: 400px;
+  padding: 40px;
 `;
 
 export const DialogFooter = styled.div`
@@ -81,6 +83,7 @@ const FoodDialogContainer = ({ openFood, setOpenFood }) => {
 
   const addToOrder = () => {
     dispatch(cartActions.addItem(openFood));
+    handlerClose();
   };
 
   return (
@@ -91,7 +94,7 @@ const FoodDialogContainer = ({ openFood, setOpenFood }) => {
           <DialogBannerName>{openFood.name}</DialogBannerName>
         </DialogBanner>
         <DialogContent>
-          <div>Comprameee</div>
+          <div>{openFood.description}</div>
         </DialogContent>
         <DialogFooter>
           <ConfirmButton onClick={addToOrder}>

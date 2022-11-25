@@ -11,6 +11,8 @@ import { GrisClaro, GrisOscuro, ColorSombra } from '../../Styles/utilities';
 import { useSelector, useDispatch } from 'react-redux';
 import { QuantityManage } from './QuantityManage';
 import * as cartActions from '../../redux/cart/cart-actions';
+import { Link } from 'react-router-dom';
+
 
 const OrderStyled = styled.div`
   position: fixed;
@@ -113,7 +115,10 @@ export const Order = () => {
           </OrderContent>
         )}
         <OrderFooter>
+          <Link to="/Checkout" onClick={handlerToggle}>
           <OrderButton>Ir a pagar {formatPrice(total)}</OrderButton>
+          </Link>
+          
         </OrderFooter>
       </OrderStyled>
     </>
