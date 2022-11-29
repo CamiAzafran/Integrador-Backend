@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FoodLabel } from '../Menu/FoodGrid';
-import { Title } from '../../Styles/title';
+import { Title } from '../UI';
 import { GrisOscuro } from '../../Styles/utilities';
-import { formatPrice } from '../../data/data';
+import { formatPrice } from '../../utils'
 import { useDispatch } from 'react-redux';
 import * as cartActions from '../../redux/cart/cart-actions';
 
@@ -60,7 +60,7 @@ export const ConfirmButton = styled(Title)`
   &:hover {
     opacity: 0.5;
   }
-  &:actibe {
+  &:active {
     opacity: 1;
   }
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Title } from '../../Styles/title';
+import { Title } from '../UI';
 
 import { GrisOscuro, GrisClaro, } from '../../Styles/utilities';
 import RemoveIcon from '../../assets/delete-full.svg';

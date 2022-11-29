@@ -6,7 +6,7 @@ import {
   ConfirmButton,
   DialogShadow,
 } from '../FoodDialog/FoodDialog';
-import { formatPrice } from '../../data/data';
+import { formatPrice } from '../../utils'
 import { GrisClaro, GrisOscuro, ColorSombra } from '../../Styles/utilities';
 import { useSelector, useDispatch } from 'react-redux';
 import { QuantityManage } from './QuantityManage';
