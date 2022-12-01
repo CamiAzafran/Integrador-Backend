@@ -9,6 +9,7 @@ import { useOpenFood } from './hooks/useOpenFood';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Checkout from './pages/Checkout';
+import Login from './pages/Login';
 
 function App() {
   const opendFood = useOpenFood();
@@ -20,9 +21,11 @@ function App() {
       <Order />
 
       <Routes>
-        <Route exact path='/' element={<Home opendFood={opendFood} />}></Route>
+        <Route exact path="/" element={<Home opendFood={opendFood} />}></Route>
 
-        <Route path='/Checkout' element={<Checkout />}></Route>
+        <Route path="/Checkout" element={<Checkout />}></Route>
+        
+        <Route path="/login" element={<Login />}></Route>
       </Routes>
     </Router>
   );
