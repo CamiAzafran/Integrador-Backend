@@ -22,7 +22,7 @@ import {
   createUserProfileDocument,
 } from '../firebase/firebase.util';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ContainerButtons = styled.div`
   display: flex;
@@ -44,8 +44,9 @@ const GoogleIcon = styled.img`
 `;
 
 const Alink = styled.a`
-  color: red;
+  color: white;
   margin-left: 5px;
+  cursor: pointer;
   &:hover {
     text-decoration: underline;
   }
@@ -53,7 +54,7 @@ const Alink = styled.a`
 
 const Login = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
-  const history = useHistory();
+  const navigate = useNavigate();
   const [isLoginMode, setIsLoginMode] = useState(true);
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -70,7 +71,7 @@ const Login = () => {
   );
 
   if (currentUser) {
-    history.goBack();
+    navigate("/");
   }
 
   const switchModeHandler = () => {
@@ -175,7 +176,7 @@ const Login = () => {
               </GoogleButton>
             </ContainerButtons>
             <ContainerButtons>
-              <span>
+              <span style={{ color: '#5a5a5a' }}>
                 {isLoginMode
                   ? 'Ya tenés una cuenta? '
                   : 'Todavía no tenés una cuenta?'}
