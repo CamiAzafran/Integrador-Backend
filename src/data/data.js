@@ -10,7 +10,7 @@ export const foodItems = [
   {
     id: 2,
     name: 'Pancho Pulpito',
-    img: '/static/img/panchos-2.jpg',
+    img: '/proyecto-integrador/public/img/panchos-2.jpg',
     section: 'Panchos',
     description: 'Pancho con cosas verdes arriba y ketchup.',
     price: 500,
