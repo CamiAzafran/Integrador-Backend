@@ -2,7 +2,7 @@ export const foodItems = [
   {
     id: 1,
     name: 'Pancho Simpatico',
-    img: '/img/panchos-1.jpg',
+    img: '/static/img/panchos-1.jpg',
     section: 'Panchos',
     description: 'Pancho bastante simpatico con muchas cosas.',
     price: 500,
