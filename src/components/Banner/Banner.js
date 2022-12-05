@@ -7,7 +7,7 @@ export const Banner = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('img/banner-1.jpg');
+  background-image: url('/proyecto-integrador/public/img/banner-1.jpg');
   filter: contrast(75%) brightness(75%);
   background-attachment: fixed;
   background-position: center -180px;
