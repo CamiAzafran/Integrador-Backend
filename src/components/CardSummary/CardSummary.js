@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { CustomButton } from '../UI';
 import { formatPrice } from '../../utils';
-import { useSelector } from 'react-redux';
-import { COSTO_ENVIO } from '../../utils';
 import { GrisOscuro } from '../../Styles/utilities';
 
 const CardContainer = styled.div`
@@ -53,13 +51,7 @@ const TotalCard = styled.div`
   color: lightgray;
 `;
 
-export const CardSummary = ({ isValid }) => {
-  const totalItems = useSelector((state) =>
-    state.cart.cartItems.reduce(
-      (acc, cartItem) => acc + cartItem.price * cartItem.quantity,
-      0
-    )
-  );
+export const CardSummary = ({ isValid, envio, subTotal }) => {
   return (
     <CardContainer>
       <CardSummaryStyled>
@@ -67,17 +59,17 @@ export const CardSummary = ({ isValid }) => {
           <UlCard>
             <LiCard>
               <p>Costo de Productos</p>
-              <span>{formatPrice(totalItems)}</span>
+              <span>{formatPrice(subTotal)}</span>
             </LiCard>
             <LiCard>
               <p>Costo de Envío</p>
-              <span>{formatPrice(COSTO_ENVIO)}</span>
+              <span>{formatPrice(envio)}</span>
             </LiCard>
           </UlCard>
           <RowCard />
           <TotalCard>
             <h4>Total</h4>
-            <h4>{formatPrice(COSTO_ENVIO + totalItems)}</h4>
+            <h4>{formatPrice(envio + subTotal)}</h4>
           </TotalCard>
           <CustomButton w="100%" m="0px" disabled={isValid}>
             Pagar

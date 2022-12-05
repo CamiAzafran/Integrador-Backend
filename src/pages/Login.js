@@ -71,7 +71,7 @@ const Login = () => {
   );
 
   if (currentUser) {
-    navigate("/");
+    navigate(-1);
   }
 
   const switchModeHandler = () => {
